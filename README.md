@@ -50,5 +50,7 @@ Based on my project outline:
 ### Setup
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/[YourUsername]/I-MEF-The-Crucible.git
+   git clone https://github.com/Mervhd/I-MEF-The-Crucible.git
    cd I-MEF-The-Crucible
+
+
