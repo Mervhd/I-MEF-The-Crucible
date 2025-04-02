@@ -1,5 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Marine.hpp"
+#include "Gear.hpp"
+#include "Mission.hpp"
+#include "SquadManager.hpp"
 
 enum class GameState {
 	MainMenu,
@@ -10,6 +14,7 @@ enum class GameState {
 
 int main() 
 {
+	
 	// Create an 800x600 window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "I-MEF: The Crucible");
 
@@ -54,10 +59,6 @@ int main()
 	missionSelectText.setPosition(sf::Vector2f(300, 250));
 	missionSelectText.setFillColor(sf::Color(200, 200, 200));
 
-	sf::Text rosterScreenText("Roster\n- Sgt. Kane: HP 100\n- Cpl. Vega: HP 80", font, 20);
-	rosterScreenText.setPosition(sf::Vector2f(300, 250));
-	rosterScreenText.setFillColor(sf::Color(200, 200, 200));
-
 	sf::Text inventoryText("Inventory\n- M41A Pulse Rifle\n- Combat Armor", font, 20);
 	inventoryText.setPosition(sf::Vector2f(300, 250));
 	inventoryText.setFillColor(sf::Color(200, 200, 200));
@@ -70,6 +71,20 @@ int main()
 	sf::Text backText("back", font, 20);
 	backText.setPosition(sf::Vector2f(370, 510));
 	backText.setFillColor(sf::Color(200, 200, 200));
+
+	// SquadManager and Marine Roster Integration
+	SquadManager squad;
+	squad.addMarine(Marine("Sgt. Kane", 100, 50, 30));
+	squad.addMarine(Marine("Cpl. Vega", 80, 40, 25));
+
+	std::string rosterString = "Roster\n";
+	for (const Marine& marine : squad.getMarines()) {
+		rosterString += "- " + marine.getName() + ": HP " + std::to_string(marine.getHealth()) + "\n";
+	}
+	sf::Text rosterScreenText(rosterString, font, 20);
+	rosterScreenText.setPosition(sf::Vector2f(300, 250));
+	rosterScreenText.setFillColor(sf::Color(200, 200, 200));
+	
 
 
 	// Main loop

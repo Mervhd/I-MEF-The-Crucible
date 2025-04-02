@@ -143,10 +143,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Gear.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Marine.cpp" />
+    <ClCompile Include="Mission.cpp" />
+    <ClCompile Include="SquadManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Gear.hpp" />
     <ClInclude Include="Marine.hpp" />
+    <ClInclude Include="Mission.hpp" />
+    <ClInclude Include="SquadManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
